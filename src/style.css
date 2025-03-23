@@ -10,18 +10,56 @@
 
 body {
   font-family: sans-serif;
-  background-color: #000;
+  background-color: #050505;
   color: white;
+  overflow-x: hidden;
 }
+
+body::-webkit-scrollbar {
+  width: 4px; 
+}
+
+
+body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); 
+  border-radius: 5px;
+}
+
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5); 
+  border-radius: 10px;
+  backdrop-filter: blur(5px); 
+  transition: background 2s ease-in-out;
+}
+
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.8); 
+}
+
+
 .page1 {
   height: 100%;
   width: 100%;
+
 }
 #canvas {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  pointer-events: none;
+
+  z-index: 0;
+}
+#canvas2 {
+  position: absolute;
+  height: 100%; 
+  width: 100%;
+
+  pointer-events: none;
+  /* background: #fff; */
+  z-index: 0;
 }
 nav {
   height: 15vh;
@@ -38,6 +76,7 @@ nav {
 }
 
 .nav-link h1 {
+  user-select: none;
   padding-top: 11px;
   font-size: 17px; /* Increased for better scaling */
   cursor: pointer;
@@ -65,8 +104,8 @@ nav {
   content: "";
   position: absolute;
   inset: 0; /* Makes it cover the whole h1 */
-  background: #ffe14c27;
-  transition: transform 0.3s ease;
+  background: #ffe14cda;
+  transition: transform 0.5s ease , background 0.4s ease;
   transform: scaleX(0);
   transform-origin: center;
   z-index: -1;
@@ -79,31 +118,89 @@ nav {
 
 .hero-text {
   position: absolute;
-  top: 70%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
+  mix-blend-mode: difference;  
+}
+.hero-text::selection{
+  background-color: #ffffffe2;
+  color: black;
+  text-shadow: 2px 2px 10px black;
 }
 .hero-text h1 {
   font-family: "Viaoda Libre";
   letter-spacing: 20px;
-  font-size: 80px;
+  font-size: 100px;
   font-weight: 100;
   text-align: center;
   text-shadow: 2px 2px 10px white;
 }
 .hero-text h2 {
+  margin-top: 30px;
   font-family: "Viaoda Libre";
-  letter-spacing: 20px;
+  letter-spacing: 16px;
   font-size: 20px;
   font-weight: 100;
   text-align: center;
   text-shadow: 5px 5px 14px white;
 }
+.page2::selection{
+  background-color: #ffffffe2;
+  color: black;
+  text-shadow: 2px 2px 10px black;
+}
 .page2 {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #fff;
+  background-color: transparent ;
   height: 100vh;
   width: 100%;
+  z-index: -1;
+}
+.page2 h1 {
+  font-family: "Viaoda Libre";
+  letter-spacing: 20px;
+  font-size: 100px;
+  font-weight: 100;
+  text-align: center;
+  text-shadow: 2px 2px 10px white;
+  position: absolute;
+  top: 37%;
+  left: 10%;
+  z-index: 2;
+}
+.page2 p {
+  width: 50%;
+  margin-top: 30px;
+  font-family: "Viaoda Libre";
+  letter-spacing: 5px;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
+  text-shadow: 5px 5px 14px white;
+  
+
+}
+
+#para1{
+  position: absolute;
+  top: 0%;
+  right: 30%;
+}
+#para2{
+  position: absolute;
+  top: 60%;
+  left: 50%; 
+  z-index: 2;
+}
+.page3 {
+  position: absolute;
+  top: 200%;
+  left: 0;
+  background-color: white ;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
 }
