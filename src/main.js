@@ -107,6 +107,16 @@ document.addEventListener("DOMContentLoaded", () => {
         scrub: 0.9,
       },
     });
+
+    gsap.from(model2.rotation, {
+      y: 2,
+      scrollTrigger: {
+        trigger: ".page2",
+        start: "top center",
+        end: "center center",
+        scrub: 0.9,
+      },
+    });
   });
 
   camera2.position.set(0, -2.4, 3);
@@ -129,19 +139,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const renderer3 = new THREE.WebGLRenderer({
     canvas: document.getElementById("canvas3"),
     antialias: true,
+    alpha: true,
   });
   renderer3.setSize(window.innerWidth, window.innerHeight);
   renderer3.shadowMap.enabled = true;
 
   const controls3 = new OrbitControls(camera3, renderer3.domElement);
   controls3.enableDamping = true;
+  controls3.dampingFactor = 0.05;
+  controls3.enableRotate = true;
+  controls3.enableZoom = false;
+  controls3.enablePan = false;
+  controls3.minPolarAngle = Math.PI / 2;
+  controls3.maxPolarAngle = Math.PI / 2;
 
   // Load HDRI as environment map
   const rgbeLoader = new RGBELoader();
   rgbeLoader.load("warm_restaurant_night_1k.hdr", (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     scene3.environment = texture;
-    // scene3.background = texture;
   });
 
   // Add a point light
@@ -156,46 +172,57 @@ document.addEventListener("DOMContentLoaded", () => {
     model3.position.set(0, -1, 0);
     scene3.add(model3);
 
-    gsap.to(model3.rotation, {
-      y: 0.01,
-      scrollTrigger: {
-        trigger: ".page3",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1,
-      },
-    });
+    // Start animation only after model3 is loaded
+    animate3();
   });
 
-  camera3.position.set(0, 0, 5);
+  camera3.position.set(0, -1.5, 8);
 
   function animate3() {
     requestAnimationFrame(animate3);
+
+    if (model3) {
+      // Ensure model3 is loaded before modifying it
+      model3.rotation.y += 0.005;
+    }
+
     controls3.update();
     renderer3.render(scene3, camera3);
   }
-  animate3();
 
   // Mouse move event for all scenes
   window.addEventListener("mousemove", (event) => {
     const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
     const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
 
-    gsap.to(pointLight1.position, {
-      x: mouseX * 5,
-      y: mouseY * 5,
-      duration: 0.2,
-    });
-    gsap.to(pointLight2.position, {
-      x: mouseX * 5,
-      y: mouseY * 5,
-      duration: 0.2,
-    });
-    gsap.to(pointLight3.position, {
-      x: mouseX * 5,
-      y: mouseY * 5,
-      duration: 0.2,
-    });
+    console.log("Mouse Move:", mouseX, mouseY); // Debugging log
+
+    if (pointLight1 && pointLight2 && pointLight3) {
+      gsap.to(pointLight1.position, {
+        x: mouseX * 5,
+        y: mouseY * 5,
+        duration: 0.2,
+        ease: "power2.out",
+      });
+      gsap.to(pointLight2.position, {
+        x: mouseX * 5,
+        y: mouseY * 5,
+        duration: 0.2,
+        ease: "power2.out",
+      });
+      gsap.to(pointLight3.position, {
+        x: mouseX * 5,
+        y: mouseY * 5,
+        duration: 0.2,
+        ease: "power2.out",
+      });
+
+      console.log("Light Positions:", {
+        pointLight1: pointLight1.position,
+        pointLight2: pointLight2.position,
+        pointLight3: pointLight3.position,
+      });
+    }
   });
 
   // Resize event for all scenes
@@ -211,5 +238,19 @@ document.addEventListener("DOMContentLoaded", () => {
     renderer3.setSize(window.innerWidth, window.innerHeight);
     camera3.aspect = window.innerWidth / window.innerHeight;
     camera3.updateProjectionMatrix();
+  });
+  // gsap.registerPlugin(ScrollTrigger);
+
+  const h1 = document.querySelector('.marquee-container h1');
+  const words = h1.innerText.split(""); // Split into words
+  h1.innerHTML = ""; 
+
+  
+  words.forEach((word) => {
+      const span = document.createElement("span");
+      span.innerText = word;
+      h1.appendChild(span);
+      console.log(span);
+      
   });
 });

@@ -1,13 +1,16 @@
 /* Reset default margins and paddings */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cherish&family=Jaini&family=Metal+Mania&family=Oswald:wght@200..700&family=Rock+Salt&family=Smythe&family=Viaoda+Libre&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cherish&family=Jaini&family=Metal+Mania&family=Oswald:wght@200..700&family=Rock+Salt&family=Smythe&family=Viaoda+Libre&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Charm:wght@400;700&family=Cherish&family=Jaini&family=Metal+Mania&family=Oswald:wght@200..700&family=Rock+Salt&family=Smythe&family=Viaoda+Libre&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cherish&family=Jaini&family=Metal+Mania&family=Oswald:wght@200..700&family=Rock+Salt&family=Viaoda+Libre&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: sans-serif;
   background-color: #050505;
@@ -16,33 +19,28 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 4px; 
+  width: 4px;
 }
 
-
 body::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1); 
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
 }
 
-
 body::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.5); 
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
   transition: background 2s ease-in-out;
 }
 
-
 body::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.8); 
+  background: rgba(255, 255, 255, 0.8);
 }
-
 
 .page1 {
   height: 100%;
   width: 100%;
-
 }
 #canvas {
   position: absolute;
@@ -54,13 +52,14 @@ body::-webkit-scrollbar-thumb:hover {
 }
 #canvas2 {
   position: absolute;
-  height: 100%; 
+  height: 100%;
   width: 100%;
 
   pointer-events: none;
   /* background: #fff; */
   z-index: 0;
 }
+
 nav {
   height: 15vh;
   width: 100%;
@@ -82,7 +81,7 @@ nav {
   cursor: pointer;
   z-index: 2;
   transition: transform 0.4s ease, opacity 0.5s ease, filter 0.5s ease;
-  position: relative; 
+  position: relative;
   font-family: "Smythe";
 }
 
@@ -105,7 +104,7 @@ nav {
   position: absolute;
   inset: 0; /* Makes it cover the whole h1 */
   background: #ffe14cda;
-  transition: transform 0.5s ease , background 0.4s ease;
+  transition: transform 0.5s ease, background 0.4s ease;
   transform: scaleX(0);
   transform-origin: center;
   z-index: -1;
@@ -121,9 +120,9 @@ nav {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  mix-blend-mode: difference;  
+  mix-blend-mode: difference;
 }
-.hero-text::selection{
+.hero-text::selection {
   background-color: #ffffffe2;
   color: black;
   text-shadow: 2px 2px 10px black;
@@ -145,7 +144,12 @@ nav {
   text-align: center;
   text-shadow: 5px 5px 14px white;
 }
-.page2::selection{
+.page2::selection {
+  background-color: #ffffffe2;
+  color: black;
+  text-shadow: 2px 2px 10px black;
+}
+.page3::selection {
   background-color: #ffffffe2;
   color: black;
   text-shadow: 2px 2px 10px black;
@@ -154,7 +158,7 @@ nav {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: transparent ;
+  background-color: transparent;
   height: 100vh;
   width: 100%;
   z-index: -1;
@@ -180,27 +184,250 @@ nav {
   font-weight: 100;
   text-align: center;
   text-shadow: 5px 5px 14px white;
-  
-
 }
 
-#para1{
+#para1 {
   position: absolute;
   top: 0%;
   right: 30%;
 }
-#para2{
+#para2 {
   position: absolute;
   top: 60%;
-  left: 50%; 
+  left: 50%;
   z-index: 2;
 }
 .page3 {
   position: absolute;
   top: 200%;
   left: 0;
-  background-color: white ;
+
   height: 100vh;
   width: 100%;
   z-index: -1;
 }
+.page3 h1 {
+  background-color: #ffffff;
+  font-family: "Viaoda Libre";
+  letter-spacing: 22px;
+  font-size: 100px;
+  font-weight: 100;
+  text-align: center;
+  text-shadow: 2px 2px 10px white;
+  color: black;
+  position: absolute;
+  left: 3%;
+  top: 43%;
+  border-radius: 1px;
+
+  mix-blend-mode: difference;
+
+  padding: 14px;
+}
+.page3 p {
+  z-index: -1;
+  margin-top: 30px;
+  font-family: "Viaoda Libre";
+  letter-spacing: 8px;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
+  text-shadow: 5px 5px 14px white;
+
+  width: 45%;
+  text-align: start;
+
+  position: absolute;
+  left: 1%;
+  top: 10%;
+
+  mix-blend-mode: multiply;
+}
+.page3 h4 {
+  margin-top: 30px;
+  font-family: "Viaoda Libre";
+  letter-spacing: 3px;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
+  text-shadow: 5px 5px 14px white;
+
+  position: absolute;
+  right: 1%;
+  top: 1%;
+}
+.page4 {
+  position: absolute;
+  top: 300vh;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: transparent;
+}
+.content {
+  height: 44vh;
+  width: 100%;
+}
+.about {
+  border: white 1px solid;
+  border-left: none;
+  border-bottom: none;
+}
+.contact {
+  border-top: white 1px solid;
+  position: relative;
+}
+.contact p {
+  position: absolute;
+  bottom: 1.5%;
+  left: 27%;
+  font-family: "Winky Sans";
+}
+.misc {
+  border: white 1px solid;
+  border-right: none;
+  border-bottom: none;
+  position: relative;
+}
+footer {
+  height: 56vh;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  overflow: hidden;
+}
+
+svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+svg path {
+  fill: transparent;
+  stroke: white;
+  stroke-width: 1;
+  stroke-dasharray: 379;
+  stroke-dashoffset: 379;
+  animation: textAnimation 4s ease-in-out forwards infinite;
+}
+@keyframes textAnimation {
+  0% {
+    stroke-dashoffset: 379;
+  }
+  60% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(214, 214, 214);
+    stroke-dashoffset: 0;
+  }
+}
+
+.socials {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  display: flex;
+  gap: 40px;
+}
+.about-text {
+  padding: 60px;
+}
+.about-text h4 {
+  font-size: 32px;
+  font-weight: 800;
+  font-family: "Viaoda Libre";
+}
+.about-text p {
+  margin-top: 40px;
+  font-size: 20px;
+  font-family: "Winky Sans";
+}
+.socials span {
+  font-size: 35px;
+  background-color: rgb(31, 31, 31);
+  border-radius: 50%;
+  padding: 9px;
+}
+.socials span:hover {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  transform: scale(1.1);
+  /* user-select: none; */
+}
+.page4::selection {
+  background-color: #ffffffe2;
+  color: black;
+}
+
+.banner {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url("https://i.pinimg.com/736x/12/ea/aa/12eaaa21e378d73320f0a43ad276d196.jpg");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0px; /* Starts as a thin line */
+  background-color: rgba(255, 255, 255, 0.7);
+  left: 0%;
+  top: 0;
+  transition: width 0.3s ease-in-out;
+  background-image: url(https://i.pinimg.com/736x/18/19/41/181941eeab54255a189a9e9ec057afb2.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.banner:hover::before {
+  width: 100%; 
+}
+
+
+.marquee-container {
+  width: 100%;
+  margin-top: 80px;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+
+}
+.marquee-container h1{
+  font-family: "Charm";
+}
+.marquee-container h1 span{
+  display: inline-block;
+  gap: 20px;
+}
+
+.marquee-container h1 span:hover{
+  transform: scaleY(1.5);
+  color: beige;
+}
+.marquee {
+  display: inline-block;
+  font-size: 5rem;
+  font-weight: bold;
+  position: relative;
+  animation: marquee 20s linear infinite;
+
+}
+
+@keyframes marquee {
+  0% {
+      transform: translateX(200%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
