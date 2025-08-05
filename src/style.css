@@ -1,8 +1,6 @@
-/* Reset default margins and paddings */
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cherish&family=Jaini&family=Metal+Mania&family=Oswald:wght@200..700&family=Rock+Salt&family=Smythe&family=Viaoda+Libre&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cherish&family=Jaini&family=Metal+Mania&family=Oswald:wght@200..700&family=Rock+Salt&family=Smythe&family=Viaoda+Libre&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Charm:wght@400;700&family=Cherish&family=Jaini&family=Metal+Mania&family=Oswald:wght@200..700&family=Rock+Salt&family=Smythe&family=Viaoda+Libre&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cherish&family=Jaini&family=Metal+Mania&family=Oswald:wght@200..700&family=Rock+Salt&family=Viaoda+Libre&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Charm:wght@400;700&family=Cherish&family=Jaini&family=Metal+Mania&family=Oswald:wght@200..700&family=Rock+Salt&family=Smythe&family=Viaoda+Libre&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap");
+
+
 * {
   margin: 0;
   padding: 0;
@@ -309,7 +307,7 @@ svg path {
   fill: transparent;
   stroke: white;
   stroke-width: 1;
-  stroke-dasharray: 379;
+  stroke-dasharray:379;
   stroke-dashoffset: 379;
   animation: textAnimation 4s ease-in-out forwards infinite;
 }
